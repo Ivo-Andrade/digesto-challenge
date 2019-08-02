@@ -1,0 +1,15 @@
+CPU,Memory,Storage,Bandwidth,Price
+1 vCPU,1 GB,25 GB,1 TB,$5/mo
+1 vCPU,2 GB,50 GB,2 TB,$10/mo
+1 vCPU,3 GB,60 GB,3 TB,$15/mo
+2 vCPUs,2 GB,60 GB,3 TB,$15/mo
+3 vCPUs,1 GB,60 GB,3 TB,$15/mo
+2 vCPUs,4 GB,80 GB,4 TB,$20/mo
+4 vCPUs,8 GB,160 GB,5 TB,$40/mo
+6 vCPUs,16 GB,320 GB,6 TB,$80/mo
+8 vCPUs,32 GB,640 GB,7 TB,$160/mo
+12 vCPUs,48 GB,960 GB,8 TB,$240/mo
+16 vCPUs,64 GB,"1,280 GB",9 TB,$320/mo
+20 vCPUs,96 GB,"1,920 GB",10 TB,$480/mo
+24 vCPUs,128 GB,"2,560 GB",11 TB,$640/mo
+32 vCPUs,192 GB,"3,840 GB",12 TB,$960/mo
