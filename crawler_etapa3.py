@@ -24,7 +24,7 @@ for args in sys.argv[1:]:
 	elif args == '--save_csv':
 		save_csv = True
 	else:
-		print("Argumento incorreto:", args, ". Arhgumentos disponíveis: --print, --save_json.")
+		print("Argumento incorreto:", args, ". Arhgumentos disponíveis: --print, --save_json, --save_csv.")
 		exit()
 
 # print('Making request to vultr.com...')
