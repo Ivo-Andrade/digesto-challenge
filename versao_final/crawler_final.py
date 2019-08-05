@@ -1,9 +1,8 @@
-import requests
-from lxml import html
 import sys
-import json
 import csv
 from extractData import extractData
+from requestData import requestPageData
+from printData import createConsolePrint, createJSONFile, createCSVFile
 
 #############################################
 ### FUNCTIONS
@@ -29,19 +28,6 @@ def argumentoIncorreto(args):
 	print("Argumento incorreto:", args, ". Argumentos disponíveis: --print, --save_json, --save_csv, --websiteDBFilename, --websiteList.")
 	exit()
 
-# Requests data from a website, parsing its information as well
-def requestPageData(url):
-	try:
-		r = requests.get(url)
-	except requests.exceptions.Timeout:
-	    print("Connection with vultr.com timed out, verify your connection or retry later.")
-	except requests.exceptions.TooManyRedirects:
-	    print("Connection had too many redirects, double-check your url.")
-	except requests.exceptions.RequestException as e:
-		print(e)
-		exit()
-	return html.fromstring(r.content)
-
 # Prints data
 def printData(data, handle, name):
 	if data != []:
@@ -56,28 +42,6 @@ def printData(data, handle, name):
 			createCSVFile(data, filename)
 	else:
 		print("Dados não puderam ser extraidos!")
-
-# Prints data on console
-def createConsolePrint(data):
-	for index, value in enumerate(data):
-		line = '|'.join(str(x).ljust(12) for x in value)
-		print(line)
-		if index == 0:
-			print('-' * len(line))
-
-# Saves data on a JSON file (as an array of arrays)
-def createJSONFile(data, filename):
-	with open(filename, 'w') as outfile:
-		json.dump(data, outfile)
-	print("Arquivo salvo em formato JSON em", filename)
-
-# Saves data on a CSV file
-def createCSVFile(data, filename):
-	with open(filename, mode='w') as outfile:
-	    csv_writer = csv.writer(outfile, delimiter=',', lineterminator = '\n')
-	    for row in data:
-	    	csv_writer.writerow(i for i in row)
-	print("Arquivo salvo em formato CSV em", filename)
 
 #############################################
 ### CLASSES
